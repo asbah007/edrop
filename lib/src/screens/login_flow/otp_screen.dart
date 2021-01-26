@@ -2,7 +2,6 @@ import 'package:aion/src/components/Buttons.dart';
 import 'package:aion/src/config/constants.dart';
 import 'package:aion/src/screens/login_flow/user_information.dart';
 import 'package:aion/utils/packages/pincode_text_field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +46,6 @@ class OTPScreenState extends State<OTPScreen> {
             flex: 6,
           ),
           PinCodeTextField(
-            autofocus: true,
             controller: otpController,
             hideCharacter: true,
             highlight: true,
@@ -58,7 +56,7 @@ class OTPScreenState extends State<OTPScreen> {
             maxLength: 6,
             pinBoxRadius: 10,
             hasError: hasError,
-            maskCharacter: "*",
+            maskCharacter: "⚫",
             onTextChanged: (text) {
               setState(() {
                 hasError = false;
@@ -114,9 +112,12 @@ class OTPScreenState extends State<OTPScreen> {
               child: SizedBox(
                   height: 50,
                   child: kPrimaryButton(
-                      color: kPrimaryColor, onTap: () {
-                        Get.to(UserInfo());
-                  }, title: "Submit")),
+                    color: kPrimaryColor,
+                    onTap: () {
+                      Get.to(UserInfo());
+                    },
+                    title: "Submit",
+                  )),
             ),
           ]),
         ],
